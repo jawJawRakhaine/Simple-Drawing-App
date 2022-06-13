@@ -2,7 +2,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 let color = document.getElementById("color");
 let size = document.getElementById("size");
-canvas.width = window.innerWidth - 100;
+canvas.width = window.innerWidth - 50;
 canvas.height = window.innerHeight - 200;
 let position = canvas.getBoundingClientRect();
 
