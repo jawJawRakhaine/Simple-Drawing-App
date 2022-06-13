@@ -29,6 +29,10 @@ function draw(e) {
 canvas.addEventListener("mousedown", startPainting);
 canvas.addEventListener("mouseup", finishedPainting);
 canvas.addEventListener("mousemove", draw);
+// touch events
+canvas.addEventListener("touchstart", startPainting);
+canvas.addEventListener("touchend", finishedPainting);
+canvas.addEventListener("touchmove", draw);
 
 const btn = document.getElementById("btn");
 btn.addEventListener("click", () => {
