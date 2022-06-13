@@ -8,7 +8,15 @@
     <title>Drawing App</title>
   </head>
   <body>
+    <h1 id="title">Drawing App using Canvas</h1>
     <canvas id="canvas"></canvas>
+    <div id="tools">
+      <button id="btn">Clear</button>
+      <label for="color">Color</label>
+      <input type="color" name="color" id="color" />
+      <label for="size">Pen Size</label>
+      <input type="range" name="size" id="size" min="1" max="10" value="5" />
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
