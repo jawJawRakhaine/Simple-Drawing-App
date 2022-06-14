@@ -11,11 +11,17 @@
     <h1 id="title">Drawing App using Canvas</h1>
     <canvas id="canvas"></canvas>
     <div id="tools">
-      <button id="btn">Clear</button>
+      <button id="undo">Undo</button>
+      <button id="clear">Clear</button>
       <label for="color">Color</label>
       <input type="color" name="color" id="color" />
       <label for="size">Pen Size</label>
       <input type="range" name="size" id="size" min="1" max="10" value="5" />
+      <label for="lineCap">Line Cap</label>
+      <select name="lineCap" id="lineCap">
+        <option value="butt">Butt</option>
+        <option selected value="round">Round</option>
+        <option value="square">Square</option>
     </div>
     <script src="app.js"></script>
   </body>
