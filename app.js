@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 let color = document.getElementById("color");
 let size = document.getElementById("size");
 let lineCap = document.getElementById("lineCap");
+let eraser = document.getElementById("eraser");
 canvas.width = window.innerWidth - 50;
 canvas.height = window.innerHeight - 200;
 let position = canvas.getBoundingClientRect();
@@ -69,3 +70,10 @@ undoBtn.addEventListener("click", () => {
     ctx.putImageData(restore[index], 0, 0);
   }
 });
+
+function erase() {
+  ctx.globalCompositeOperation = "destination-out";
+  ctx.fillStyle = "rgba(0,0,0,1)";
+  ctx.strokeStyle = "rgba(0,0,0,1)";
+}
+eraser.addEventListener("click", erase);
