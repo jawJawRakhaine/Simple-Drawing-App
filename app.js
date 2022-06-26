@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 let color = document.getElementById("color");
 let size = document.getElementById("size");
 let lineCap = document.getElementById("lineCap");
+let undoBtn = document.getElementById("undo");
 let eraser = document.getElementById("eraser");
 canvas.width = window.innerWidth - 50;
 canvas.height = window.innerHeight - 200;
@@ -59,8 +60,20 @@ function clearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+// eraser
+eraser.addEventListener("click", (e) => {
+  ctx.globalCompositeOperation = "destination-out";
+  ctx.fillStyle = "rgba(0,0,0,1)";
+  ctx.strokeStyle = "rgba(0,0,0,1)";
+  e.preventDefault();
+});
+color.addEventListener("change", (e) => {
+  ctx.globalCompositeOperation = "source-over";
+  ctx.strokeStyle = color.value;
+  e.preventDefault();
+});
+
 // undo canvas
-const undoBtn = document.getElementById("undo");
 undoBtn.addEventListener("click", () => {
   if (index <= 0) {
     clearCanvas();
@@ -70,10 +83,3 @@ undoBtn.addEventListener("click", () => {
     ctx.putImageData(restore[index], 0, 0);
   }
 });
-
-function erase() {
-  ctx.globalCompositeOperation = "destination-out";
-  ctx.fillStyle = "rgba(0,0,0,1)";
-  ctx.strokeStyle = "rgba(0,0,0,1)";
-}
-eraser.addEventListener("click", erase);
